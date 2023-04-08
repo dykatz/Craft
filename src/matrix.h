@@ -1,5 +1,4 @@
-#ifndef _matrix_h_
-#define _matrix_h_
+#pragma once
 
 void normalize(float *x, float *y, float *z);
 void mat_identity(float *matrix);
@@ -24,5 +23,3 @@ void set_matrix_3d(
     float x, float y, float z, float rx, float ry,
     float fov, int ortho, int radius);
 void set_matrix_item(float *matrix, int width, int height, int scale);
-
-#endif
