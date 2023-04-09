@@ -19,6 +19,7 @@
 #include "config.h"
 #include "cube.h"
 #include "db.h"
+#include "epoxy/gl_generated.h"
 #include "item.h"
 #include "map.h"
 #include "matrix.h"
@@ -2490,7 +2491,7 @@ int main(int argc, char **argv) {
   glBindTexture(GL_TEXTURE_2D, texture);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-  load_png_texture("textures/texture.png");
+  load_qoi_texture("textures/texture.qoi");
 
   GLuint font;
   glGenTextures(1, &font);
@@ -2498,7 +2499,7 @@ int main(int argc, char **argv) {
   glBindTexture(GL_TEXTURE_2D, font);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-  load_png_texture("textures/font.png");
+  load_qoi_texture("textures/font.qoi");
 
   GLuint sky;
   glGenTextures(1, &sky);
@@ -2508,7 +2509,7 @@ int main(int argc, char **argv) {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-  load_png_texture("textures/sky.png");
+  load_qoi_texture("textures/sky.qoi");
 
   GLuint sign;
   glGenTextures(1, &sign);
@@ -2516,7 +2517,7 @@ int main(int argc, char **argv) {
   glBindTexture(GL_TEXTURE_2D, sign);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-  load_png_texture("textures/sign.png");
+  load_qoi_texture("textures/sign.qoi");
 
   // LOAD SHADERS //
   Attrib block_attrib = {0};
@@ -2591,7 +2592,7 @@ int main(int argc, char **argv) {
   int running = 1;
   while (running) {
     // DATABASE INITIALIZATION //
-    if (g->mode == MODE_OFFLINE || USE_CACHE) {
+    /*if (g->mode == MODE_OFFLINE || USE_CACHE) {
       db_enable();
       if (db_init(g->db_path)) {
         return -1;
@@ -2600,7 +2601,7 @@ int main(int argc, char **argv) {
         // TODO: support proper caching of signs (handle deletions)
         db_delete_all_signs();
       }
-    }
+    }*/
 
     // CLIENT INITIALIZATION //
     if (g->mode == MODE_ONLINE) {

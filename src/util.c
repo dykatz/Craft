@@ -7,9 +7,10 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#include "lodepng.h"
 #include "matrix.h"
+#include "qoi.h"
 
 int rand_int(int n) {
   int result;
@@ -132,18 +133,16 @@ void flip_image_vertical(unsigned char *data, unsigned int width, unsigned int h
   free(new_data);
 }
 
-void load_png_texture(const char *file_name) {
-  unsigned int error;
-  unsigned char *data;
-  unsigned int width, height;
-  error = lodepng_decode32_file(&data, &width, &height, file_name);
-  if (error) {
-    fprintf(stderr, "load_png_texture %s failed, error %u: %s\n", file_name, error,
-            lodepng_error_text(error));
+void load_qoi_texture(const char *file_name) {
+  qoi_desc desc;
+  void *data = qoi_read(file_name, &desc, 0);
+  if (data == NULL) {
+    fprintf(stderr, "error: load_qoi_texture(%s)\n", file_name);
     exit(1);
   }
-  flip_image_vertical(data, width, height);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+  flip_image_vertical(data, desc.width, desc.height);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, desc.width, desc.height, 0, GL_RGBA, GL_UNSIGNED_BYTE,
+               data);
   free(data);
 }
 
