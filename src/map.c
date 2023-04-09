@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #include <stdlib.h>
 #include <string.h>
 #include "map.h"

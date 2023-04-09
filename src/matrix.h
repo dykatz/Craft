@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #pragma once
 
 void normalize(float *x, float *y, float *z);

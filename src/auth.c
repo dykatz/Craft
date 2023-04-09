@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #include <curl/curl.h>
 #include <stdio.h>
 #include <stdlib.h>

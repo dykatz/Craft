@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #include "config.h"
 #include "noise.h"
 #include "world.h"

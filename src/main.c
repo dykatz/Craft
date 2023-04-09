@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #include <epoxy/gl.h>
 #include <GLFW/glfw3.h>
 #include <curl/curl.h>

@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #include <math.h>
 #include "cube.h"
 #include "item.h"

@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #ifdef _WIN32
     #include <winsock2.h>
     #include <windows.h>

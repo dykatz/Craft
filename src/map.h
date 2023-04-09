@@ -1,3 +1,6 @@
+// © 2013 Michael Fogleman
+// SPDX-License-Identifier: MIT
+
 #pragma once
 
 #define EMPTY_ENTRY(entry) ((entry)->value == 0)
