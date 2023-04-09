@@ -19,7 +19,6 @@
 #include "config.h"
 #include "cube.h"
 #include "db.h"
-#include "epoxy/gl_generated.h"
 #include "item.h"
 #include "map.h"
 #include "matrix.h"

@@ -2,9 +2,9 @@
 
 Minecraft clone for Windows, Mac OS X and Linux. Just a few thousand lines of C using modern OpenGL (shaders). Online multiplayer support is included using a Python-based server.
 
-http://www.michaelfogleman.com/craft/
-
 ![Screenshot](https://i.imgur.com/SH7wcas.png)
+
+![Screenshot](https://i.imgur.com/foYz3aN.png)
 
 ### Features
 
@@ -18,50 +18,26 @@ http://www.michaelfogleman.com/craft/
 
 ### Download
 
-Mac and Windows binaries are available on the website.
-
-http://www.michaelfogleman.com/craft/
-
-See below to run from source.
+No binaries are provided. See below to run from source.
 
 ### Install Dependencies
 
 #### Mac OS X
 
-Download and install [CMake](http://www.cmake.org/cmake/resources/software.html)
-if you don't already have it. You may use [Homebrew](http://brew.sh) to simplify
-the installation:
+There are a few dependencies required that can be installed via [homebrew](https://brew.sh):
 
-    brew install cmake
-
-#### Linux (Ubuntu)
-
-    sudo apt-get install cmake libglew-dev xorg-dev libcurl4-openssl-dev
-    sudo apt-get build-dep glfw
-
-#### Windows
-
-Download and install [CMake](http://www.cmake.org/cmake/resources/software.html)
-and [MinGW](http://www.mingw.org/). Add `C:\MinGW\bin` to your `PATH`.
-
-Download and install [cURL](http://curl.haxx.se/download.html) so that
-CURL/lib and CURL/include are in your Program Files directory.
-
-Use the following commands in place of the ones described in the next section.
-
-    cmake -G "MinGW Makefiles"
-    mingw32-make
+    brew install meson glfw libepoxy
 
 ### Compile and Run
 
 Once you have the dependencies (see above), run the following commands in your
 terminal.
 
-    git clone https://github.com/fogleman/Craft.git
+    git clone https://github.com/dykatz/Craft.git
     cd Craft
-    cmake .
-    make
-    ./craft
+    meson setup build
+    cd build && meson compile && cd ..
+    ./build/craft
 
 ### Multiplayer
 
@@ -149,10 +125,6 @@ Teleport to the specified chunk.
 
 Teleport back to the spawn point.
 
-### Screenshot
-
-![Screenshot](https://i.imgur.com/foYz3aN.png)
-
 ### Implementation Details
 
 #### Terrain Generation
@@ -209,11 +181,23 @@ Ambient occlusion is implemented as described on this page:
 
 http://0fps.wordpress.com/2013/07/03/ambient-occlusion-for-minecraft-like-worlds/
 
-#### Dependencies
+### Dependencies
 
-* GLEW is used for managing OpenGL extensions across platforms.
-* GLFW is used for cross-platform window management.
-* CURL is used for HTTPS / SSL POST for the authentication process.
-* lodepng is used for loading PNG textures.
-* sqlite3 is used for saving the blocks added / removed by the user.
-* tinycthread is used for cross-platform threading.
+| Dependency  | Description                 | Vendored |
+| ----------- | --------------------------- | -------- |
+| epoxy       | Managing OpenGL extensions  | No       |
+| glfw        | Window and input management | No       |
+| cURL        | HTTPS connections for auth  | No       |
+| qoi         | Loading textures            | Yes      |
+| sqlite3     | Storing game state          | Yes      |
+| tinycthread | Cross platform threading    | Yes      |
+
+### History
+
+The guts of this project were initially created by Michael Fogleman back [in 2013](https://github.com/fogleman/Craft/commit/e3fd09b13f3e134fe76c679902503d76484d86c1), and he developed it actively until early 2014. Its homepage lives [here](https://www.michaelfogleman.com/projects/craft/) and the original git repo lives [here](https://github.com/fogleman/Craft).
+
+This fork was created in 2023 to turn it into an actual game.
+
+### License
+
+Everything in this project is under a permissive license. Check each file for specific copyright information. The standard license for new code is the MIT license.
