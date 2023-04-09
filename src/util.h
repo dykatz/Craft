@@ -3,28 +3,32 @@
 
 #pragma once
 
+// clang-format off
+// gl.h must be included before glfw3.h
 #include <epoxy/gl.h>
 #include <GLFW/glfw3.h>
+// clang-format on
+
 #include "config.h"
 
 #define PI 3.14159265359
-#define DEGREES(radians) ((radians) * 180 / PI)
-#define RADIANS(degrees) ((degrees) * PI / 180)
+#define DEGREES(radians) ((radians)*180 / PI)
+#define RADIANS(degrees) ((degrees)*PI / 180)
 #define ABS(x) ((x) < 0 ? (-(x)) : (x))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define SIGN(x) (((x) > 0) - ((x) < 0))
 
 #if DEBUG
-    #define LOG(...) printf(__VA_ARGS__)
+#define LOG(...) printf(__VA_ARGS__)
 #else
-    #define LOG(...)
+#define LOG(...)
 #endif
 
 typedef struct {
-    unsigned int fps;
-    unsigned int frames;
-    double since;
+  unsigned int fps;
+  unsigned int frames;
+  double since;
 } FPS;
 
 int rand_int(int n);

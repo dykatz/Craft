@@ -2,6 +2,7 @@
   "recommendations": [
     "llvm-vs-code-extensions.vscode-clangd",
     "mesonbuild.mesonbuild",
-    "geforcelegend.vscode-glsl"
+    "geforcelegend.vscode-glsl",
+    "xaver.clang-format"
   ]
 }
