@@ -9,18 +9,17 @@ src = [
   'src/main.c',
   'src/map.c',
   'src/matrix.c',
+  'src/noise.c',
   'src/ring.c',
   'src/sign.c',
   'src/util.c',
   'src/world.c',
   'deps/lodepng/lodepng.c',
-  'deps/noise/noise.c',
   'deps/tinycthread/tinycthread.c'
 ]
 
 inc = [
   'deps/lodepng',
-  'deps/noise',
   'deps/tinycthread'
 ]
 
