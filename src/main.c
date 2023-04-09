@@ -2592,7 +2592,7 @@ int main(int argc, char **argv) {
   int running = 1;
   while (running) {
     // DATABASE INITIALIZATION //
-    /*if (g->mode == MODE_OFFLINE || USE_CACHE) {
+    if (g->mode == MODE_OFFLINE || USE_CACHE) {
       db_enable();
       if (db_init(g->db_path)) {
         return -1;
@@ -2601,7 +2601,7 @@ int main(int argc, char **argv) {
         // TODO: support proper caching of signs (handle deletions)
         db_delete_all_signs();
       }
-    }*/
+    }
 
     // CLIENT INITIALIZATION //
     if (g->mode == MODE_ONLINE) {

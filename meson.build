@@ -15,19 +15,20 @@ src = [
   'src/sign.c',
   'src/util.c',
   'src/world.c',
+  'deps/sqlite/sqlite3.c',
   'deps/tinycthread/tinycthread.c'
 ]
 
 inc = [
+  'deps/sqlite',
   'deps/tinycthread'
 ]
 
 curl = dependency('libcurl')
 epoxy = dependency('epoxy')
 glfw = dependency('glfw3')
-sqlite = dependency('sqlite3')
 
-deps = [curl, epoxy, glfw, sqlite]
+deps = [curl, epoxy, glfw]
 
 executable('craft',
   sources: src,
